@@ -9,10 +9,8 @@ import uvicorn
 
 app = FastAPI(title="Bank Churn Prediction API")
 
-# Path to the directory containing index.html
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Load model once at startup
 try:
     model = load_model()
 except Exception as e:
@@ -29,12 +27,10 @@ def predict(data: ChurnInput):
     if model is None:
         raise HTTPException(status_code=500, detail="Model not loaded")
     
-    # Convert input data to DataFrame as expected by the pipeline
     input_dict = data.dict()
     df = pd.DataFrame([input_dict])
     
     try:
-        # The model is likely a pipeline (prep + model) as seen in XG_boost.ipynb
         prob = model.predict_proba(df)[0, 1]
         prediction = int(prob > 0.5)
         

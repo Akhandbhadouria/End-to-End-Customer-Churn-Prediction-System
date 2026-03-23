@@ -1,4 +1,3 @@
-# schema.py
 from pydantic import BaseModel
 
 class ChurnInput(BaseModel):
