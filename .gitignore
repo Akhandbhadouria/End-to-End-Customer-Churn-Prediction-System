@@ -1,0 +1,26 @@
+# Environment & Secrets
+*.pem
+*.key
+.env
+secret.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env/
+.python-version
+.pytest_cache/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Project Specific
+models/*.pkl
+Bank_Churn.csv
